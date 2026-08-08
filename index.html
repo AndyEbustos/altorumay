@@ -719,6 +719,44 @@
       font-weight: 700;
     }
 
+    .opcion-precio {
+      padding: 22px 0;
+    }
+
+    .opcion-precio + .opcion-precio {
+      border-top: 1px solid rgba(8,43,98,.12);
+    }
+
+    .opcion-precio h3 {
+      margin-bottom: 4px;
+      color: var(--azul);
+      font-size: 1.05rem;
+    }
+
+    .opcion-precio.destacada {
+      margin: 4px -16px 0;
+      padding: 22px 16px;
+      border-radius: 18px;
+      background: rgba(54,168,83,.09);
+    }
+
+    .opcion-precio.destacada + .nota {
+      border-top: 0;
+    }
+
+    .sello-plan {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      color: var(--blanco);
+      background: var(--verde);
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
     .precio {
       display: flex;
       align-items: end;
@@ -743,6 +781,33 @@
       padding-top: 20px;
       border-top: 1px solid rgba(8,43,98,.12);
       font-size: 0.85rem;
+    }
+
+    .condiciones-basicas {
+      grid-column: 1 / -1;
+      padding: 28px 30px;
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 22px;
+      background: rgba(255,255,255,.08);
+    }
+
+    .condiciones-basicas h3 {
+      margin-bottom: 8px;
+      color: var(--blanco);
+    }
+
+    .condiciones-basicas > p {
+      margin-bottom: 15px;
+    }
+
+    .condiciones-basicas .lista {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 28px;
+      margin-top: 0;
+    }
+
+    .condiciones-basicas .lista li {
+      color: rgba(255,255,255,.84);
     }
 
     /* Confianza */
@@ -939,6 +1004,14 @@
 
       .panel-areas {
         padding: 16px;
+      }
+
+      .condiciones-basicas {
+        padding: 24px 20px;
+      }
+
+      .condiciones-basicas .lista {
+        grid-template-columns: 1fr;
       }
 
       .area {
@@ -1262,7 +1335,7 @@
           <span class="etiqueta">Tarifa preferencial</span>
 
           <h2>
-            Un programa anual con costo definido
+            Un programa anual con valor preferencial
           </h2>
 
           <p>
@@ -1279,34 +1352,70 @@
         </div>
 
         <div class="precio-caja">
-          <small>PLAN ANUAL</small>
+          <small>VALORES DESDE</small>
 
-          <div class="precio">
-            <strong>9,6 UF</strong>
-            <span>+ IVA</span>
+          <div class="opcion-precio">
+            <h3>Servicio mensual unitario</h3>
+
+            <div class="precio">
+              <strong>1,5 UF</strong>
+              <span>+ IVA / visita</span>
+            </div>
+
+            <p>
+              Valor por una visita mensual, sin contratación anual.
+            </p>
           </div>
 
-          <p>
-            Equivalente a <strong>0,8 UF + IVA mensuales</strong>,
-            con doce visitas programadas.
-          </p>
+          <div class="opcion-precio destacada">
+            <span class="sello-plan">Plan básico anual</span>
+            <h3>Tarifa mensual con contratación anual</h3>
+
+            <div class="precio">
+              <strong>0,8 UF</strong>
+              <span>+ IVA / mes</span>
+            </div>
+
+            <p>
+              Tarifa sujeta a la contratación del plan básico anual de
+              doce visitas, equivalente a <strong>9,6 UF + IVA al año</strong>.
+            </p>
+          </div>
 
           <div class="nota">
-            Valor base de una visita individual: <strong>1,5 UF + IVA</strong>.
-            Valores sujetos a evaluación previa, características del
-            edificio y áreas de cobertura.
+            Ambos valores son precios desde y están sujetos a evaluación
+            previa, características del edificio y áreas de cobertura.
           </div>
 
           <div class="botones">
             <a
               class="boton boton-principal"
-              href="https://wa.me/56995694735?text=Hola%2C%20quisiera%20cotizar%20el%20plan%20anual%20de%209%2C6%20UF%20%2B%20IVA%20para%20un%20edificio."
+              href="https://wa.me/56995694735?text=Hola%2C%20quisiera%20cotizar%20el%20servicio%20de%20control%20de%20plagas%20para%20un%20edificio%20y%20conocer%20las%20alternativas%20mensual%20y%20anual."
               target="_blank"
               rel="noopener noreferrer"
             >
               Consultar disponibilidad
             </a>
           </div>
+        </div>
+
+        <div class="condiciones-basicas">
+          <h3>Condiciones del plan básico anual</h3>
+          <p>
+            La tarifa preferente de 0,8 UF + IVA mensuales está sujeta a la
+            contratación anual e incluye:
+          </p>
+
+          <ul class="lista">
+            <li>Instalación de hasta 20 estaciones cebaderas</li>
+            <li>
+              Una aplicación anual de insecticida en áreas comunes y de
+              servicio: lobby, dependencias de servicio, subterráneos y
+              exterior del edificio
+            </li>
+            <li>Desinfección de servicios sanitarios</li>
+            <li>Servicios en horario diurno durante días de semana</li>
+          </ul>
         </div>
       </div>
     </section>
