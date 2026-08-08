@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Plan anual de control de plagas para edificios. Atención programada, control de roedores e insectos y registro de visitas."
+  >
+
+  <title>Control de plagas para edificios | Alto Rumay</title>
+
+  <style>
+    :root {
+      --azul: #082b62;
+      --azul-claro: #114a8b;
+      --naranja: #ff4b0b;
+      --verde: #14752d;
+      --verde-claro: #eaf7ed;
+      --gris: #5d6878;
+      --gris-claro: #f3f6fa;
+      --blanco: #ffffff;
+      --sombra: 0 18px 45px rgba(8, 43, 98, 0.12);
+      --radio: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      color: var(--azul);
+      background: var(--blanco);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    img,
+    svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    .contenedor {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .etiqueta {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 18px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      color: var(--verde);
+      background: var(--verde-claro);
+      font-size: 0.88rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .etiqueta::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--verde);
+      box-shadow: 0 0 0 5px rgba(20, 117, 45, 0.12);
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.08;
+      text-wrap: balance;
+    }
+
+    h1 {
+      margin-bottom: 22px;
+      font-size: clamp(2.6rem, 6vw, 5.6rem);
+      letter-spacing: -0.055em;
+    }
+
+    h2 {
+      margin-bottom: 18px;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      letter-spacing: -0.04em;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    p {
+      color: var(--gris);
+    }
+
+    .texto-destacado {
+      color: var(--naranja);
+    }
+
+    .boton {
+      display: inline-flex;
+      min-height: 54px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 22px;
+      border: 0;
+      border-radius: 14px;
+      cursor: pointer;
+      font: inherit;
+      font-weight: 850;
+      transition:
+        transform 180ms ease,
+        box-shadow 180ms ease,
+        background 180ms ease;
+    }
+
+    .boton:hover {
+      transform: translateY(-2px);
+    }
+
+    .boton-principal {
+      color: var(--blanco);
+      background: var(--naranja);
+      box-shadow: 0 14px 28px rgba(255, 75, 11, 0.24);
+    }
+
+    .boton-principal:hover {
+      background: #e93d00;
+      box-shadow: 0 18px 34px rgba(255, 75, 11, 0.31);
+    }
+
+    .boton-secundario {
+      color: var(--azul);
+      background: var(--blanco);
+      border: 1px solid rgba(8, 43, 98, 0.15);
+    }
+
+    .botones {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    /* Navegación */
+
+    .navegacion {
+      position: sticky;
+      z-index: 30;
+      top: 0;
+      background: rgba(255, 255, 255, 0.92);
+      border-bottom: 1px solid rgba(8, 43, 98, 0.08);
+      backdrop-filter: blur(14px);
+    }
+
+    .barra {
+      display: flex;
+      min-height: 76px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .marca {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+    }
+
+    .marca-simbolo {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border-radius: 13px;
+      color: var(--blanco);
+      background:
+        linear-gradient(135deg, var(--azul), var(--azul-claro));
+      font-size: 1.2rem;
+    }
+
+    .marca small {
+      display: block;
+      color: var(--gris);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .enlaces {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: var(--gris);
+      font-size: 0.94rem;
+      font-weight: 700;
+    }
+
+    .enlaces a:hover {
+      color: var(--naranja);
+    }
+
+    /* Portada */
+
+    .portada {
+      position: relative;
+      isolation: isolate;
+      min-height: 720px;
+      display: grid;
+      align-items: center;
+      padding: 90px 0 80px;
+      overflow: hidden;
+      background:
+        radial-gradient(
+          circle at 82% 18%,
+          rgba(93, 190, 255, 0.25),
+          transparent 28%
+        ),
+        linear-gradient(135deg, #ffffff 0%, #f4f8fc 100%);
+    }
+
+    .portada::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      right: -110px;
+      bottom: -160px;
+      width: 540px;
+      height: 540px;
+      border-radius: 50%;
+      background: rgba(20, 117, 45, 0.08);
+    }
+
+    .portada-grid {
+      display: grid;
+      grid-template-columns: 1.06fr 0.94fr;
+      align-items: center;
+      gap: 65px;
+    }
+
+    .portada-texto > p {
+      max-width: 650px;
+      font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+    }
+
+    .datos-rapidos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 24px;
+      margin-top: 28px;
+      color: var(--azul);
+      font-size: 0.92rem;
+      font-weight: 750;
+    }
+
+    .datos-rapidos span {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .datos-rapidos span::before {
+      content: "✓";
+      display: grid;
+      width: 22px;
+      height: 22px;
+      place-items: center;
+      border-radius: 50%;
+      color: white;
+      background: var(--verde);
+      font-size: 0.75rem;
+    }
+
+    /* Edificio dibujado con CSS */
+
+    .escena {
+      position: relative;
+      min-height: 520px;
+      display: grid;
+      align-items: end;
+      justify-items: center;
+    }
+
+    .sol {
+      position: absolute;
+      top: 0;
+      right: 6%;
+      width: 95px;
+      height: 95px;
+      border-radius: 50%;
+      background: #ffd34e;
+      box-shadow: 0 0 60px rgba(255, 211, 78, 0.48);
+    }
+
+    .edificio {
+      position: relative;
+      width: min(100%, 430px);
+      height: 420px;
+      padding: 35px 25px;
+      border-radius: 18px 18px 6px 6px;
+      background:
+        linear-gradient(90deg, transparent 48%, rgba(0,0,0,.05) 49%, transparent 51%),
+        linear-gradient(135deg, #eaf0f5, #ffffff);
+      border: 1px solid rgba(8, 43, 98, 0.08);
+      box-shadow: var(--sombra);
+      transform: perspective(900px) rotateY(-4deg);
+    }
+
+    .edificio::before {
+      content: "";
+      position: absolute;
+      left: -25px;
+      right: -25px;
+      top: -18px;
+      height: 34px;
+      border-radius: 10px;
+      background: #dce5ed;
+      box-shadow: 0 8px 16px rgba(8, 43, 98, 0.12);
+    }
+
+    .ventanas {
+      display: grid;
+      height: 100%;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+      gap: 22px 18px;
+    }
+
+    .ventana {
+      position: relative;
+      overflow: hidden;
+      border: 5px solid #d9e2e8;
+      background:
+        linear-gradient(145deg, #c5ecff 0%, #75b9da 46%, #17527b 100%);
+      box-shadow: inset 7px 0 rgba(255,255,255,.25);
+    }
+
+    .ventana::after {
+      content: "";
+      position: absolute;
+      left: 47%;
+      top: 0;
+      width: 4px;
+      height: 100%;
+      background: #d9e2e8;
+    }
+
+    .entrada {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 85px;
+      height: 105px;
+      transform: translateX(-50%);
+      background: #163f63;
+      border: 6px solid #e0e7ec;
+    }
+
+    .pasto {
+      position: absolute;
+      right: 0;
+      bottom: -10px;
+      left: 0;
+      height: 48px;
+      border-radius: 50%;
+      background: #42a443;
+      filter: drop-shadow(0 10px 12px rgba(20,117,45,.18));
+    }
+
+    /* Cucaracha */
+
+    .insecto-escena {
+      position: absolute;
+      z-index: 8;
+      bottom: 22px;
+      left: -70px;
+      width: 50px;
+      height: 35px;
+      animation: correr 8s linear 1.2s infinite;
+    }
+
+    .cucaracha {
+      position: relative;
+      width: 44px;
+      height: 26px;
+      border-radius: 50% 48% 45% 50%;
+      background: #452619;
+      box-shadow:
+        inset -6px -4px 0 rgba(0,0,0,.28),
+        0 4px 6px rgba(0,0,0,.18);
+      transform: rotate(6deg);
+    }
+
+    .cucaracha::before {
+      content: "";
+      position: absolute;
+      left: -10px;
+      top: 7px;
+      width: 16px;
+      height: 13px;
+      border-radius: 50%;
+      background: #2d1710;
+    }
+
+    .antena,
+    .pata {
+      position: absolute;
+      height: 2px;
+      background: #2d1710;
+      transform-origin: right center;
+    }
+
+    .antena.a1 {
+      left: -24px;
+      top: 5px;
+      width: 26px;
+      transform: rotate(25deg);
+    }
+
+    .antena.a2 {
+      left: -24px;
+      top: 17px;
+      width: 26px;
+      transform: rotate(-20deg);
+    }
+
+    .pata {
+      width: 24px;
+      right: 5px;
+    }
+
+    .pata.p1 { top: 3px; transform: rotate(35deg); }
+    .pata.p2 { top: 12px; transform: rotate(5deg); }
+    .pata.p3 { top: 21px; transform: rotate(-35deg); }
+
+    .sello-controlado {
+      position: absolute;
+      z-index: 9;
+      right: 16px;
+      bottom: 5px;
+      display: grid;
+      width: 105px;
+      height: 105px;
+      place-items: center;
+      border: 7px solid var(--naranja);
+      border-radius: 50%;
+      color: var(--naranja);
+      background: rgba(255,255,255,.9);
+      font-size: 0.8rem;
+      font-weight: 950;
+      letter-spacing: 0.06em;
+      text-align: center;
+      opacity: 0;
+      transform: scale(2) rotate(-15deg);
+      animation: sellar 8s ease 1.2s infinite;
+    }
+
+    @keyframes correr {
+      0% {
+        left: -70px;
+        opacity: 1;
+        transform: translateY(0) rotate(0);
+      }
+
+      65% {
+        left: calc(100% - 70px);
+        opacity: 1;
+        transform: translateY(-2px) rotate(4deg);
+      }
+
+      69% {
+        left: calc(100% - 70px);
+        opacity: 1;
+        transform: scaleY(0.18);
+      }
+
+      72%,
+      100% {
+        left: calc(100% - 70px);
+        opacity: 0;
+        transform: scaleY(0.18);
+      }
+    }
+
+    @keyframes sellar {
+      0%,
+      65% {
+        opacity: 0;
+        transform: scale(2) rotate(-15deg);
+      }
+
+      70% {
+        opacity: 1;
+        transform: scale(.88) rotate(-8deg);
+      }
+
+      75%,
+      92% {
+        opacity: 1;
+        transform: scale(1) rotate(-8deg);
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+
+    /* Secciones */
+
+    section {
+      padding: 95px 0;
+    }
+
+    .cabecera-seccion {
+      max-width: 720px;
+      margin-bottom: 45px;
+    }
+
+    .cabecera-seccion p {
+      font-size: 1.08rem;
+    }
+
+    .tarjetas {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .tarjeta {
+      padding: 28px;
+      border: 1px solid rgba(8, 43, 98, 0.09);
+      border-radius: var(--radio);
+      background: var(--blanco);
+      box-shadow: 0 12px 34px rgba(8, 43, 98, 0.07);
+    }
+
+    .icono {
+      display: grid;
+      width: 54px;
+      height: 54px;
+      margin-bottom: 22px;
+      place-items: center;
+      border-radius: 16px;
+      color: var(--blanco);
+      background: var(--verde);
+      font-size: 1.45rem;
+    }
+
+    .incluye {
+      background: var(--gris-claro);
+    }
+
+    .lista {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+      list-style: none;
+    }
+
+    .lista li {
+      position: relative;
+      padding-left: 29px;
+      color: var(--gris);
+    }
+
+    .lista li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 1px;
+      display: grid;
+      width: 20px;
+      height: 20px;
+      place-items: center;
+      border-radius: 50%;
+      color: var(--blanco);
+      background: var(--verde);
+      font-size: 0.7rem;
+      font-weight: 900;
+    }
+
+    .columnas {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 70px;
+    }
+
+    .panel-areas {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      padding: 24px;
+      border-radius: 28px;
+      background: var(--azul);
+      box-shadow: var(--sombra);
+    }
+
+    .area {
+      min-height: 115px;
+      padding: 18px;
+      border-radius: 17px;
+      color: white;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+
+    .area strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .area span {
+      color: rgba(255,255,255,.72);
+      font-size: 0.85rem;
+    }
+
+    /* Proceso */
+
+    .proceso {
+      background:
+        linear-gradient(180deg, var(--blanco), #f5f8fc);
+    }
+
+    .pasos {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      counter-reset: paso;
+    }
+
+    .paso {
+      position: relative;
+      min-height: 225px;
+      padding: 30px 24px;
+      border-radius: var(--radio);
+      background: var(--blanco);
+      border: 1px solid rgba(8, 43, 98, 0.08);
+      counter-increment: paso;
+    }
+
+    .paso::before {
+      content: counter(paso);
+      display: grid;
+      width: 43px;
+      height: 43px;
+      margin-bottom: 24px;
+      place-items: center;
+      border-radius: 13px;
+      color: var(--blanco);
+      background: var(--naranja);
+      font-weight: 900;
+    }
+
+    /* Precio */
+
+    .precio-seccion {
+      color: white;
+      background: var(--azul);
+    }
+
+    .precio-seccion p {
+      color: rgba(255,255,255,.72);
+    }
+
+    .precio-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .precio-caja {
+      padding: 35px;
+      border-radius: 28px;
+      color: var(--azul);
+      background: var(--blanco);
+      box-shadow: 0 24px 60px rgba(0,0,0,.19);
+    }
+
+    .precio-caja small {
+      color: var(--gris);
+      font-weight: 700;
+    }
+
+    .opcion-precio {
+      padding: 22px 0;
+    }
+
+    .opcion-precio + .opcion-precio {
+      border-top: 1px solid rgba(8,43,98,.12);
+    }
+
+    .opcion-precio h3 {
+      margin-bottom: 4px;
+      color: var(--azul);
+      font-size: 1.05rem;
+    }
+
+    .opcion-precio.destacada {
+      margin: 4px -16px 0;
+      padding: 22px 16px;
+      border-radius: 18px;
+      background: rgba(54,168,83,.09);
+    }
+
+    .opcion-precio.destacada + .nota {
+      border-top: 0;
+    }
+
+    .sello-plan {
+      display: inline-block;
+      margin-bottom: 8px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      color: var(--blanco);
+      background: var(--verde);
+      font-size: .72rem;
+      font-weight: 900;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .precio {
+      display: flex;
+      align-items: end;
+      gap: 9px;
+      margin: 12px 0;
+    }
+
+    .precio strong {
+      font-size: clamp(3rem, 7vw, 5rem);
+      line-height: 1;
+      letter-spacing: -0.06em;
+    }
+
+    .precio span {
+      margin-bottom: 9px;
+      color: var(--gris);
+      font-weight: 800;
+    }
+
+    .nota {
+      margin-top: 22px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(8,43,98,.12);
+      font-size: 0.85rem;
+    }
+
+    .condiciones-basicas {
+      grid-column: 1 / -1;
+      padding: 28px 30px;
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 22px;
+      background: rgba(255,255,255,.08);
+    }
+
+    .condiciones-basicas h3 {
+      margin-bottom: 8px;
+      color: var(--blanco);
+    }
+
+    .condiciones-basicas > p {
+      margin-bottom: 15px;
+    }
+
+    .condiciones-basicas .lista {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px 28px;
+      margin-top: 0;
+    }
+
+    .condiciones-basicas .lista li {
+      color: rgba(255,255,255,.84);
+    }
+
+    /* Confianza */
+
+    .confianza-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .confianza-item {
+      padding: 25px;
+      border-left: 4px solid var(--verde);
+      border-radius: 0 16px 16px 0;
+      background: var(--gris-claro);
+    }
+
+    /* Contacto */
+
+    .contacto {
+      padding-top: 40px;
+    }
+
+    .contacto-caja {
+      position: relative;
+      overflow: hidden;
+      padding: 60px;
+      border-radius: 34px;
+      color: var(--blanco);
+      background:
+        linear-gradient(135deg, var(--naranja), #f63600);
+      box-shadow: 0 25px 60px rgba(255,75,11,.25);
+    }
+
+    .contacto-caja::after {
+      content: "✓";
+      position: absolute;
+      right: -30px;
+      bottom: -100px;
+      color: rgba(255,255,255,.12);
+      font-size: 280px;
+      font-weight: 900;
+      transform: rotate(-12deg);
+    }
+
+    .contacto-caja h2,
+    .contacto-caja p,
+    .contacto-caja .botones {
+      position: relative;
+      z-index: 2;
+    }
+
+    .contacto-caja p {
+      max-width: 700px;
+      color: rgba(255,255,255,.85);
+      font-size: 1.1rem;
+    }
+
+    .contacto-caja .boton-principal {
+      color: var(--azul);
+      background: var(--blanco);
+    }
+
+    footer {
+      padding: 45px 0;
+      color: var(--gris);
+      font-size: 0.9rem;
+    }
+
+    .pie {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      border-top: 1px solid rgba(8,43,98,.1);
+      padding-top: 28px;
+    }
+
+    .whatsapp-flotante {
+      position: fixed;
+      z-index: 40;
+      right: 20px;
+      bottom: 20px;
+      display: flex;
+      min-width: 58px;
+      height: 58px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 0 18px;
+      border-radius: 999px;
+      color: white;
+      background: #20b85a;
+      box-shadow: 0 15px 35px rgba(32,184,90,.33);
+      font-weight: 850;
+    }
+
+    .whatsapp-flotante:hover {
+      transform: translateY(-3px);
+    }
+
+    /* Accesibilidad y celular */
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .enlaces a:not(.boton) {
+        display: none;
+      }
+
+      .portada-grid,
+      .columnas,
+      .precio-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .portada {
+        padding-top: 65px;
+      }
+
+      .escena {
+        min-height: 470px;
+      }
+
+      .tarjetas,
+      .pasos {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .confianza-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .contenedor {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .barra {
+        min-height: 68px;
+      }
+
+      .marca small {
+        display: none;
+      }
+
+      .enlaces .boton {
+        min-height: 44px;
+        padding: 10px 14px;
+        font-size: 0.85rem;
+      }
+
+      section {
+        padding: 70px 0;
+      }
+
+      h1 {
+        font-size: 2.75rem;
+      }
+
+      .botones {
+        flex-direction: column;
+      }
+
+      .boton {
+        width: 100%;
+      }
+
+      .escena {
+        min-height: 410px;
+      }
+
+      .edificio {
+        height: 355px;
+      }
+
+      .tarjetas,
+      .pasos,
+      .confianza-grid,
+      .panel-areas {
+        grid-template-columns: 1fr;
+      }
+
+      .panel-areas {
+        padding: 16px;
+      }
+
+      .condiciones-basicas {
+        padding: 24px 20px;
+      }
+
+      .condiciones-basicas .lista {
+        grid-template-columns: 1fr;
+      }
+
+      .area {
+        min-height: auto;
+      }
+
+      .contacto-caja {
+        padding: 40px 24px;
+      }
+
+      .pie {
+        flex-direction: column;
+      }
+
+      .whatsapp-flotante span {
+        display: none;
+      }
+
+      .whatsapp-flotante {
+        width: 58px;
+        padding: 0;
+        font-size: 1.35rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navegacion" aria-label="Navegación principal">
+    <div class="contenedor barra">
+      <a class="marca" href="#inicio" aria-label="Ir al inicio">
+        <span class="marca-simbolo">AR</span>
+
+        <span>
+          Alto Rumay
+          <small>Manejo Integral de Plagas</small>
+        </span>
+      </a>
+
+      <div class="enlaces">
+        <a href="#incluye">El plan</a>
+        <a href="#cobertura">Cobertura</a>
+        <a href="#precio">Precio</a>
+
+        <a
+          class="boton boton-principal"
+          href="https://wa.me/56995694735?text=Hola%2C%20vi%20el%20plan%20anual%20de%20control%20de%20plagas%20para%20edificios%20y%20quisiera%20solicitar%20una%20evaluaci%C3%B3n."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Solicitar evaluación
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="portada" id="inicio">
+      <div class="contenedor portada-grid">
+        <div class="portada-texto">
+          <span class="etiqueta">
+            Programa anual para edificios
+          </span>
+
+          <h1>
+            Control de plagas
+            <span class="texto-destacado">durante todo el año.</span>
+          </h1>
+
+          <p>
+            Prevención, monitoreo y tratamiento programado en espacios
+            comunes, con visitas mensuales, registro de cada servicio y
+            recomendaciones para la administración.
+          </p>
+
+          <div class="botones">
+            <a
+              class="boton boton-principal"
+              href="https://wa.me/56995694735?text=Hola%2C%20vi%20el%20plan%20anual%20de%20control%20de%20plagas%20para%20edificios%20y%20quisiera%20solicitar%20una%20evaluaci%C3%B3n."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              💬 Cotizar por WhatsApp
+            </a>
+
+            <a class="boton boton-secundario" href="#incluye">
+              Ver qué incluye
+            </a>
+          </div>
+
+          <div class="datos-rapidos">
+            <span>12 visitas programadas</span>
+            <span>Control de roedores y desinfección de servicios sanitarios del personal</span>
+            <span>Informes y recomendaciones</span>
+          </div>
+        </div>
+
+        <div
+          class="escena"
+          aria-label="Ilustración de un edificio protegido contra plagas"
+        >
+          <div class="sol"></div>
+
+          <div class="edificio">
+            <div class="ventanas">
+              <div class="ventana"></div>
+              <div class="ventana"></div>
+              <div class="ventana"></div>
+              <div class="ventana"></div>
+              <div class="ventana"></div>
+              <div class="ventana"></div>
+              <div class="ventana"></div>
+              <div class="ventana"></div>
+              <div class="ventana"></div>
+              <div class="ventana"></div>
+              <div class="ventana"></div>
+              <div class="ventana"></div>
+            </div>
+
+            <div class="entrada"></div>
+          </div>
+
+          <div class="pasto"></div>
+
+          <div class="insecto-escena" aria-hidden="true">
+            <div class="cucaracha">
+              <span class="antena a1"></span>
+              <span class="antena a2"></span>
+              <span class="pata p1"></span>
+              <span class="pata p2"></span>
+              <span class="pata p3"></span>
+            </div>
+          </div>
+
+          <div class="sello-controlado" aria-hidden="true">
+            PROBLEMA<br>RESUELTO
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section id="incluye" class="incluye">
+      <div class="contenedor">
+        <div class="cabecera-seccion">
+          <span class="etiqueta">Plan preventivo y correctivo</span>
+
+          <h2>
+            Más que reaccionar cuando aparece el problema
+          </h2>
+
+          <p>
+            El programa permite revisar periódicamente las áreas críticas,
+            identificar señales de actividad y mantener un seguimiento
+            documentado durante el año.
+          </p>
+        </div>
+
+        <div class="tarjetas">
+          <article class="tarjeta">
+            <div class="icono">📅</div>
+            <h3>12 visitas programadas</h3>
+            <p>
+              Una visita mensual para inspección, monitoreo y tratamientos
+              de acuerdo con la evaluación del edificio.
+            </p>
+          </article>
+
+          <article class="tarjeta">
+            <div class="icono">🐀</div>
+            <h3>Control de roedores</h3>
+            <p>
+              Revisión de señales de actividad, puntos críticos y
+              dispositivos instalados según las necesidades del lugar.
+            </p>
+          </article>
+
+          <article class="tarjeta">
+            <div class="icono">🪳</div>
+            <h3>Control de insectos</h3>
+            <p>
+              Manejo de insectos rastreros u otras plagas incluidas en la
+              propuesta técnica definida para el edificio.
+            </p>
+          </article>
+
+          <article class="tarjeta">
+            <div class="icono">🔎</div>
+            <h3>Inspección periódica</h3>
+            <p>
+              Búsqueda de condiciones que favorecen el ingreso, refugio,
+              reproducción o alimentación de plagas.
+            </p>
+          </article>
+
+          <article class="tarjeta">
+            <div class="icono">📋</div>
+            <h3>Registro del servicio</h3>
+            <p>
+              Documentación de visitas, hallazgos, tratamientos aplicados
+              y observaciones relevantes para la administración.
+            </p>
+          </article>
+
+          <article class="tarjeta">
+            <div class="icono">🛡️</div>
+            <h3>Recomendaciones preventivas</h3>
+            <p>
+              Orientaciones para reducir factores de riesgo y mejorar las
+              condiciones sanitarias de las áreas comunes.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="cobertura">
+      <div class="contenedor columnas">
+        <div>
+          <span class="etiqueta">Áreas de cobertura</span>
+
+          <h2>
+            Un plan adaptado a las características del edificio
+          </h2>
+
+          <p>
+            Antes de comenzar se realiza una evaluación para definir los
+            sectores incluidos, los puntos de control y las necesidades
+            particulares de la comunidad.
+          </p>
+
+          <ul class="lista">
+            <li>Salas y contenedores de basura</li>
+            <li>Subterráneos y estacionamientos</li>
+            <li>Bodegas, accesos y perímetros</li>
+            <li>Quinchos y espacios comunitarios</li>
+            <li>Gimnasios y sectores de piscina</li>
+            <li>Jardines y áreas exteriores</li>
+          </ul>
+        </div>
+
+        <div class="panel-areas">
+          <div class="area">
+            <strong>Salas de basura</strong>
+            <span>Puntos de alimentación y refugio</span>
+          </div>
+
+          <div class="area">
+            <strong>Subterráneos</strong>
+            <span>Inspección de zonas de tránsito</span>
+          </div>
+
+          <div class="area">
+            <strong>Bodegas</strong>
+            <span>Revisión de sectores poco intervenidos</span>
+          </div>
+
+          <div class="area">
+            <strong>Perímetros</strong>
+            <span>Detección de posibles accesos</span>
+          </div>
+
+          <div class="area">
+            <strong>Áreas comunes</strong>
+            <span>Tratamiento según evaluación</span>
+          </div>
+
+          <div class="area">
+            <strong>Exteriores</strong>
+            <span>Revisión de vegetación y entorno</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="proceso">
+      <div class="contenedor">
+        <div class="cabecera-seccion">
+          <span class="etiqueta">Cómo funciona</span>
+          <h2>Un proceso claro para la administración</h2>
+        </div>
+
+        <div class="pasos">
+          <article class="paso">
+            <h3>Evaluación inicial</h3>
+            <p>
+              Revisamos instalaciones, condiciones sanitarias y señales
+              visibles de actividad.
+            </p>
+          </article>
+
+          <article class="paso">
+            <h3>Propuesta de cobertura</h3>
+            <p>
+              Definimos áreas incluidas, puntos de control y recomendaciones
+              iniciales.
+            </p>
+          </article>
+
+          <article class="paso">
+            <h3>Visitas mensuales</h3>
+            <p>
+              Ejecutamos las inspecciones y tratamientos establecidos en
+              el programa.
+            </p>
+          </article>
+
+          <article class="paso">
+            <h3>Seguimiento</h3>
+            <p>
+              Registramos las acciones realizadas y comunicamos los
+              hallazgos importantes.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="precio-seccion" id="precio">
+      <div class="contenedor precio-grid">
+        <div>
+          <span class="etiqueta">Tarifa preferencial</span>
+
+          <h2>
+            Un programa anual con valor preferencial
+          </h2>
+
+          <p>
+            La evaluación inicial permite confirmar las condiciones,
+            dimensiones y áreas que formarán parte de la cobertura.
+          </p>
+
+          <ul class="lista">
+            <li>Doce visitas programadas durante el año</li>
+            <li>Atención coordinada con la administración</li>
+            <li>Seguimiento y registro de los servicios</li>
+            <li>Servicios extraordinarios cotizados por separado</li>
+          </ul>
+        </div>
+
+        <div class="precio-caja">
+          <small>VALORES DESDE</small>
+
+          <div class="opcion-precio">
+            <h3>Servicio mensual unitario</h3>
+
+            <div class="precio">
+              <strong>1,5 UF</strong>
+              <span>+ IVA / visita</span>
+            </div>
+
+            <p>
+              Valor por una visita mensual, sin contratación anual.
+            </p>
+          </div>
+
+          <div class="opcion-precio destacada">
+            <span class="sello-plan">Plan básico anual</span>
+            <h3>Tarifa mensual con contratación anual</h3>
+
+            <div class="precio">
+              <strong>0,8 UF</strong>
+              <span>+ IVA / mes</span>
+            </div>
+
+            <p>
+              Tarifa sujeta a la contratación del plan básico anual de
+              doce visitas, equivalente a <strong>9,6 UF + IVA al año</strong>.
+            </p>
+          </div>
+
+          <div class="nota">
+            Ambos valores son precios desde y están sujetos a evaluación
+            previa, características del edificio y áreas de cobertura.
+          </div>
+
+          <div class="botones">
+            <a
+              class="boton boton-principal"
+              href="https://wa.me/56995694735?text=Hola%2C%20quisiera%20cotizar%20el%20servicio%20de%20control%20de%20plagas%20para%20un%20edificio%20y%20conocer%20las%20alternativas%20mensual%20y%20anual."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Consultar disponibilidad
+            </a>
+          </div>
+        </div>
+
+        <div class="condiciones-basicas">
+          <h3>Condiciones del plan básico anual</h3>
+          <p>
+            La tarifa preferente de 0,8 UF + IVA mensuales está sujeta a la
+            contratación anual e incluye:
+          </p>
+
+          <ul class="lista">
+            <li>Instalación de hasta 20 estaciones cebaderas</li>
+            <li>
+              Una aplicación anual de insecticida en áreas comunes y de
+              servicio: lobby, dependencias de servicio, subterráneos y
+              exterior del edificio
+            </li>
+            <li>Desinfección de servicios sanitarios</li>
+            <li>Servicios en horario diurno durante días de semana</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="contenedor">
+        <div class="cabecera-seccion">
+          <span class="etiqueta">Alto Rumay</span>
+          <h2>Servicio pensado para comunidades y edificios</h2>
+        </div>
+
+        <div class="confianza-grid">
+          <article class="confianza-item">
+            <h3>Atención programada</h3>
+            <p>Coordinación de visitas con la administración.</p>
+          </article>
+
+          <article class="confianza-item">
+            <h3>Seguimiento anual</h3>
+            <p>Revisión periódica y continuidad del programa.</p>
+          </article>
+
+          <article class="confianza-item">
+            <h3>Registro de visitas</h3>
+            <p>Información organizada sobre cada servicio realizado.</p>
+          </article>
+
+          <article class="confianza-item">
+            <h3>Enfoque preventivo</h3>
+            <p>Recomendaciones para disminuir condiciones de riesgo.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contacto">
+      <div class="contenedor">
+        <div class="contacto-caja">
+          <h2>Solicita una evaluación para tu edificio</h2>
+
+          <p>
+            Indícanos la comuna, cantidad aproximada de departamentos,
+            principales áreas comunes y el problema observado.
+          </p>
+
+          <div class="botones">
+            <a
+              class="boton boton-principal"
+              href="https://wa.me/56995694735?text=Hola%2C%20vi%20el%20folleto%20de%20Alto%20Rumay.%20Quisiera%20solicitar%20una%20evaluaci%C3%B3n%20para%20mi%20edificio."
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              💬 Escribir al +56 9 9569 4735
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="contenedor pie">
+      <p>
+        © <span id="anio"></span> Alto Rumay · Manejo Integral de Plagas
+      </p>
+
+      <p>
+        Valores, cobertura y condiciones sujetos a evaluación previa.
+      </p>
+    </div>
+  </footer>
+
+  <a
+    class="whatsapp-flotante"
+    href="https://wa.me/56995694735?text=Hola%2C%20vi%20la%20p%C3%A1gina%20de%20Alto%20Rumay%20y%20quisiera%20m%C3%A1s%20informaci%C3%B3n."
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Contactar por WhatsApp"
+  >
+    💬 <span>WhatsApp</span>
+  </a>
+
+  <script>
+    document.getElementById("anio").textContent =
+      new Date().getFullYear();
+  </script>
+</body>
+</html>
+   
